@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 const StorieSchema = new Schema(
   {
-    Storie_Picture: { type: String, default:"https://ibb.co/SNw459k"},
+    Storie_Picture: { type: String, default:"https://i.ibb.co/7vtdj63/default-recipe-img.jpg"},
     Storie_Title: { type: String, required: true},
     Storie_Video: { type: String, required: true},
     Storie_Text: { type: String, required: true},

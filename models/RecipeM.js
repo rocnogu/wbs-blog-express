@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 // RecipeSchema
 const RecipeSchema = new Schema(
   {
-    Recipe_Picture: { type: String, default:"https://ibb.co/SNw459k"},
+    Recipe_Picture: { type: String, default:"https://i.ibb.co/7vtdj63/default-recipe-img.jpg"},
     Recipe_Difficulty: { type: String},
     Recipe_Title: { type: String},
     Recipe_Sub_Title: { type: String},
