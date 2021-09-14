@@ -4,9 +4,9 @@ const { Schema } = mongoose;
 const StorieSchema = new Schema(
   {
     Storie_Picture: { type: String, default:"https://i.ibb.co/7vtdj63/default-recipe-img.jpg"},
-    Storie_Title: { type: String, required: true},
-    Storie_Video: { type: String, required: true},
-    Storie_Text: { type: String, required: true},
+    Storie_Title: { type: String, default:"Storie_Title"},
+    Storie_Video: { type: String, default:"https://www.youtube.com/watch?v=edR2Pf_cBJk"},
+    Storie_Text: { type: String, default:"Storie_Text"},
     Storie_Sub_Title: { type: String},
     created_by: { type: String},
     updated_by: { type: String},
