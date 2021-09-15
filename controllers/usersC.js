@@ -10,8 +10,8 @@ export async function register(req, res) {
             return res.status(400).json({message:error.details[0].message});
         }
         const user = await User.create(req.body);
-        //sendVerificationEmail(user);
-        //req.session.user = user
+        req.session.user = user
+        await sendVerificationEmail(user);
         res.json({message: 'User created successfully', data: user});
     } catch (error) {
         if ( error.code === 11000 ) {
@@ -27,11 +27,11 @@ export async function login(req, res) {
         if (error) {
             return res.status(400).json({error});
         }
-        const user = await User.findOne({email: req.body.email});
+        const user = await User.findOne({User_Email: req.body.email});
         if (!user) {
             return res.status(400).json({message: 'There was an error logging in. Please check your credentials.'});
         }
-        const isMatch = await user.comparePassword(req.body.password);
+        const isMatch = await user.comparePassword(req.body.User_Password);
         if (!isMatch) {
             return res.status(400).json({message: 'Wrong password,Try again'});
         }

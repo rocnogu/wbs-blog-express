@@ -2,7 +2,7 @@ import VerificationCode from '../models/VerificationCode.js';
 import nodemailer from 'nodemailer';
 
 export default async function sendVerificationEmail(user) {
-    const {email, _id} = user;
+    const {User_Email, _id} = user;
     const newVerificationCode = Math.floor(Math.random() * 899999) + 100000
     
     await VerificationCode.create({
@@ -12,7 +12,7 @@ export default async function sendVerificationEmail(user) {
     })
 
     var transporter = nodemailer.createTransport({
-        host: 'krieger.asoshared.com',
+        host: 'smtp.abv.bg',
         port: 465,
         secure: true,
         auth: {
@@ -23,23 +23,23 @@ export default async function sendVerificationEmail(user) {
     
     try {
         var mailOptions = {
-            from: 'noreply@rocnogu.email',
-            to: email,
+            from: 'rocnogu@abv.bg', 
+            to: User_Email,
             subject: 'Please Confirm Your rocnogu Account',
-            text: `Hi there! One more step. Please click on this verification email: http://localhost:6969/users/verify?verification_code=${newVerificationCode}`
+            text: `Hi there! One more step. Please click on this verification email: http://localhost:6969/users/verify?verification_code=${newVerificationCode}`,
+            html: "<h1> test html email send </h1>"
         };
-        transporter.sendMail(mailOptions, function(res, error, info){
+        transporter.sendMail(mailOptions, function(error, info){
             if (error) {
                 console.log(error);
-                res.status(500)
-                res.send({ error: error })
+                throw  new Error (error.message)
             } else {
                 console.log('Email sent: ' + info.response);
-                res.send('email sent');
+                return 
             }
         });
     } catch(e) {
         console.log(e);
-        res.status(500).json({ message: "there was an error generating email verification stuff", data: e })
+        throw new Error("there was an error generating email verification stuff")
     }
 }

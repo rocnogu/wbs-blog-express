@@ -42,7 +42,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use((req, res, next) => {
-    console.log(req.sessionID, req.session, req.body);
+    //console.log(req.sessionID, req.session, req.body);
     next();
 })
 
