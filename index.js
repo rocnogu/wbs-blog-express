@@ -129,8 +129,8 @@ app.delete("/recipes/:id", async (req, res) => {
 
 
 
-app.use("/confirmed", (req, res) => {
-    // TOdO: modify user document to set confirmed to true
+app.use("/confirmed", async (req, res) => {
+    await User.findByIdAndUpdate(req.session.user._id, {emailConfirmed: true})
     res.render('message', {
         title: "Thanks for confirming your contact details!",
         message:"you can now login",
@@ -138,9 +138,10 @@ app.use("/confirmed", (req, res) => {
     });
 })
 //
+
 app.use("/logged-in-page", isLoggedIn, (req, res) => {
     res.render('logged-in-page.ejs', {
-        title: 'logged-in page - this page is only visible to people that are logged in!',
+        title: 'logged-in page - only visible to people that are logged in!',
         user: req.session.user,
         sessionID: req.sessionID
     })
@@ -148,7 +149,7 @@ app.use("/logged-in-page", isLoggedIn, (req, res) => {
 //
 app.use("/admin-page", isAdmin, (req, res) => {
     res.render('admin-page.ejs', {
-        title: 'admin page - this page is only visible to people that are admin!',
+        title: 'admin page -  only visible to people that are admin!',
         user: req.session.user,
         sessionID: req.sessionID
     })

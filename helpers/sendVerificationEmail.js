@@ -2,11 +2,11 @@ import VerificationCode from '../models/VerificationCode.js';
 import nodemailer from 'nodemailer';
 
 export default async function sendVerificationEmail(user) {
-    const {User_Email, _id} = user;
+    const {email, _id} = user;
     const newVerificationCode = Math.floor(Math.random() * 899999) + 100000
     
     await VerificationCode.create({
-        user_id: _id,
+        id: _id,
         code: newVerificationCode,
         valid: true
     })
@@ -24,10 +24,9 @@ export default async function sendVerificationEmail(user) {
     try {
         var mailOptions = {
             from: 'rocnogu@abv.bg', 
-            to: User_Email,
+            to: email,
             subject: 'Please Confirm Your rocnogu Account',
-            text: `Hi there! One more step. Please click on this verification email: http://localhost:6969/users/verify?verification_code=${newVerificationCode}`,
-            html: "<h1> test html email send </h1>"
+            html: `<h1> Hello there!    One more step tho.<br> Please click on this <a href=http://localhost:6969/users/verify?verification_code=${newVerificationCode}>Link</a> <br> or copy this link: <br> http://localhost:6969/users/verify?verification_code=${newVerificationCode} and paste it into the browser address bar. </h1>`
         };
         transporter.sendMail(mailOptions, function(error, info){
             if (error) {

@@ -8,17 +8,17 @@ POST http://localhost:6969/users/register
 Content-Type: application/json
 
 {
-    "User_First_Name": "firstname",
-    "User_Last_Name": "lastname",
-    "User_Name": "testuser1",
-    "User_Password": "test123",
-    "User_Email": "test@test.bg",
-    "User_Avatar": "https://test.bg/test.jpg",
-    "User_Location": "test",
-    "User_Website": "https://test.test/",
-    "User_Gender": "test",
-    "User_Bio": "test",
-    "User_Age": 22
+    "First_Name": "firstname",
+    "Last_Name": "lastname",
+    "name": "testuser1",
+    "Password": "test123",
+    "email": "test@test.bg",
+    "Avatar": "https://test.bg/test.jpg",
+    "Location": "test",
+    "Website": "https://test.test/",
+    "Gender": "test",
+    "Bio": "test",
+    "Age": 22
 }   
 
 

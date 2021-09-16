@@ -15,17 +15,28 @@
             <br>
             <hr>
             <h3>you're logged in as:</h3>
-            <p> <%= user.User_Role %> : <%= user.User_Name %></p>
-            <p>User_Email: <%= user.User_Email %></p>
+            <p> <%= user.Role %> : <%= user.Name %></p>
+            <p>email: <%= user.email %></p>
             <br>
             <hr>
-     <p><a href="<%= link %>" class="btn btn-primary" role="button">Home</a></p> 
+     <p><a href="/" class="btn btn-primary" role="button">Home</a></p> 
      <br>
      <hr>
             <form action="users/logout" method="get">
                 <h3>logout</h3>
                 <input type="submit" value="submit" class="btn btn-primary">
             </form>
+
+
         </div>
+        <div>
+        <input type="submit" value="delete" class="btn btn-primary" onClick="delUser()" > 
+       </div>
     </body>
+    <script>
+        function delUser() {
+            fetch('/users/delete', {method: 'DELETE'})
+
+       }
+    </script>
     </html>

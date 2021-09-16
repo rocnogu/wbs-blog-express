@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const VerificationCodeSchema = new mongoose.Schema(
     {
-        user_id: {
+        id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true
