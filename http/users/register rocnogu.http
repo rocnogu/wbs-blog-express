@@ -13,7 +13,7 @@ Content-Type: application/json
     "name": "rocnogu",
     "Password": "babati123",
     "email": "rocnogu@abv.bg",
-    "Avatar": "https://i.ibb.co/TMGtD3h/Pavel-1.jpg",
+    "avatar": "https://i.ibb.co/TMGtD3h/Pavel-1.jpg",
     "Location": "Berlin",
     "Website": "https://rocnogu.wordpress.com/",
     "Gender": "Male",
