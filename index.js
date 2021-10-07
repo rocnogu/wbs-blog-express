@@ -46,7 +46,7 @@ const accessLogStream = fs.createWriteStream(path.join(process.cwd(), 'access.lo
 app.use(morgan('combined'));
 app.use(morgan('combined', { stream: accessLogStream }));
 //app.use
-app.use(cors('https://wbs-blog.netlify.app'));
+app.use(cors());
 //app.use
 app.use(express.static("css"));
 //app.use
