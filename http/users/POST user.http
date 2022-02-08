@@ -13,7 +13,7 @@ Content-Type: application/json
     "name": "testuser1",
     "Password": "test123",
     "email": "test@test.bg",
-    "avatar": "https://test.bg/test.jpg",
+    "Avatar": "https://test.bg/test.jpg",
     "Location": "test",
     "Website": "https://test.test/",
     "Gender": "test",

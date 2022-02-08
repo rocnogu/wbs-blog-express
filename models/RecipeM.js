@@ -5,11 +5,12 @@ const { Schema } = mongoose;
 // RecipeSchema
 const RecipeSchema = new Schema(
   {
+    Recipe_Picture: { type: String, default:"https://i.ibb.co/7vtdj63/default-recipe-img.jpg"},
+    Recipe_Difficulty: { type: String, default:"Easy"},
     Recipe_Title: { type: String, default:"Recipe_Title"},
     Recipe_Sub_Title: { type: String},
-    Recipe_Difficulty: { type: String, default:"Easy"},
-    Recipe_Picture: { type: String, default:"https://i.ibb.co/7vtdj63/default-recipe-img.jpg"},
-    Recipe_created_by: { type: String},
+    updated_by: { type: String},
+    created_by: { type: String},
 
     Recipe_Preparation_Time: { type: Number, default:"1"},
     Recipe_Cooking_Time: { type: Number, default:"2"},

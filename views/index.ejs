@@ -26,18 +26,12 @@
             <% } %>
             <hr>
 
-            <form method="POST" action="/upload-profile-pic" enctype="multipart/form-data">
-                <label>Select your profile picture:</label>
-                <input type="file" name="avatar" />
-                <input type="submit" value="Upload" />
-        </form>
-
                 <form action="users/register" method="post">
                     <h3>register</h3>
                     <input type="text" name="Name" placeholder="username"><br>
                     <input type="text" name="email" placeholder="email"><br>
                     <input type="password" name="Password" placeholder="Password"><br>
-                    <input  class="btn btn-primary" type="submit" value="submit">
+                    <input type="submit" value="submit" class="btn btn-primary">
                 </form>
                 <hr>
                 <form action="users/login" method="post">
